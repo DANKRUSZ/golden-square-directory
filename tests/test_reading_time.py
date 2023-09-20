@@ -22,6 +22,6 @@ def test_reading_time_long():
 
 def test_reading_time_error():
     with pytest.raises(Exception) as err:
-        result = estimated_reading_time("")
+        estimated_reading_time("")
     error_message = str(err.value)
     assert error_message == "No text length to estimate!"
