@@ -11,13 +11,13 @@ def test_format_is_correct():
 def test_count_words_correct():
     diaryentry = DiaryEntry("Today", "I went to the shops")
     result = diaryentry.count_words()
-    assert result == 6
+    assert result == 5
 
 def test_count_words_long_correct():
     contents = " ".join(["word" for i in range(0, 100)])
     diaryentry = DiaryEntry("Today", contents)
     result = diaryentry.count_words()
-    assert result == 101
+    assert result == 100
 
 def test_reading_time_correct():
     contents = " ".join(["word" for i in range(0, 100)])
@@ -32,4 +32,13 @@ def test_reading_time_correct_long():
     assert result == 10
 
 def test_reading_chunk_correct():
-    pass
+    contents = " ".join(["word" for i in range(0, 6)])
+    diaryentry = DiaryEntry("Saturday", contents)
+    result = diaryentry.reading_chunk(2, 3)
+    assert result == "word word word word word word"
+
+def test_reading_chunk_called_twice():
+    contents = " ".join(["word" for i in range(0, 6)])
+    diaryentry = DiaryEntry("Saturday", contents)
+    assert diaryentry.reading_chunk(2,2) == "word word word word"
+    assert diaryentry.reading_chunk(2,2) == "word word"
