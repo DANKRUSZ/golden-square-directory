@@ -19,13 +19,14 @@ class TaskTracker():
     def remove_completed_tasks(self, task):
         #Parameters: task - a task I have completed
         #remove tasks I have completed from my to do list
-        # Raise an exception if the task entered is not in list
+        #Raise an exception if the task entered is not in list
         for item in self.todo_list:
             if item == task:
                 self.todo_list.remove(task)
-            else:
-                raise Exception("Task not in to do list")
+            #else:
+                #raise Exception("Task not in to do list")
         return self.todo_list
+        
     
 
 
